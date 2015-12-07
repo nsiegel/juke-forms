@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>Juke</title>
 	<link href="/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
@@ -15,19 +16,22 @@
 	<script src="/js/controllers/artist.js"></script>
 	<script src="/js/controllers/artists.js"></script>
 	<script src="/js/controllers/new-playlist.js"></script>
+	<script src="/js/controllers/playlistItem.js"></script>
 	<script src="/js/factories/player.js"></script>
 	<script src="/js/factories/album.js"></script>
 	<script src="/js/factories/song.js"></script>
 	<script src="/js/factories/artist.js"></script>
-  <script src="/js/factories/new-playlist.js"></script>
+	<script src="/js/factories/new-playlist.js"></script>
+	<script src="/js/factories/playlistItem.js"></script>
 	<script src="/js/states/albums.js"></script>
 	<script src="/js/states/album.js"></script>
 	<script src="/js/states/artists.js"></script>
 	<script src="/js/states/artist.js"></script>
 	<script src="/js/states/artist-albums.js"></script>
 	<script src="/js/states/artist-songs.js"></script>
-  <script src="/js/states/new-playlist.js"></script>
+	<script src="/js/states/new-playlist.js"></script>
 </head>
+
 <body ng-app="juke">
 	<div id="main" class="container-fluid">
 
@@ -44,10 +48,14 @@
 					</h4>
 				</section>
 				<hr>
-				<section>
+				<section ng-controller="PlaylistItemCtrl">
 					<h4 class="text-muted">PLAYLISTS</h4>
+					<p class="playlist-item" ng-repeat="playlist in allPlaylists">
+						<a>{{playlist.name}}</a>
+					</p>
 					<p>
-						<a ui-sref="newPlaylist" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-plus"></span> PLAYLIST</a>
+						<a ui-sref="newPlaylist" class="btn btn-primary btn-block">
+							<span class="glyphicon glyphicon-plus"></span> PLAYLIST</a>
 					</p>
 				</section>
 			</sidebar>
@@ -81,4 +89,5 @@
 
 	</div>
 </body>
+
 </html>
