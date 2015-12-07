@@ -1,6 +1,5 @@
-app.controller('PlaylistCtrl', function ($scope) {
+app.controller('PlaylistCtrl', function ($scope, PlaylistFactory) {
 	$scope.playListName = function (name) {
-		console.log(name);
-	}
-
+    PlaylistFactory.create(name);
+  };
 });
