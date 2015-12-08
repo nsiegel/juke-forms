@@ -17,6 +17,7 @@
 	<script src="/js/controllers/artists.js"></script>
 	<script src="/js/controllers/new-playlist.js"></script>
 	<script src="/js/controllers/playlistItem.js"></script>
+  <script src="/js/controllers/playlist.js"></script>
 	<script src="/js/factories/player.js"></script>
 	<script src="/js/factories/album.js"></script>
 	<script src="/js/factories/song.js"></script>
@@ -30,6 +31,7 @@
 	<script src="/js/states/artist-albums.js"></script>
 	<script src="/js/states/artist-songs.js"></script>
 	<script src="/js/states/new-playlist.js"></script>
+  <script src="/js/states/playlist.js"></script>
 </head>
 
 <body ng-app="juke">
@@ -51,7 +53,7 @@
 				<section ng-controller="PlaylistItemCtrl">
 					<h4 class="text-muted">PLAYLISTS</h4>
 					<p class="playlist-item" ng-repeat="playlist in allPlaylists">
-						<a>{{playlist.name}}</a>
+						<a ui-sref="playlist/5674647654">{{playlist._id}}</a>
 					</p>
 					<p>
 						<a ui-sref="newPlaylist" class="btn btn-primary btn-block">

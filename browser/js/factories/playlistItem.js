@@ -12,10 +12,26 @@ app.factory('PlaylistFactory', function ($http) {
         });
     };
 
+    PlaylistFactory.fetchById = function (id) {
+  		return $http.get('/api/playlists/' + id)
+  		.then(function (response) {
+        console.log(response);
+  			return response.data;
+  		})
+  		.then(PlaylistFactory.convert)
+  		.then(function (playlist) {
+  			playlist.songs = playlist.songs.map(function (s) {
+          console.log(s);
+  				return SongFactory.convert(s, playlist.artists);
+  			});
+  			return playlist;
+  		});
+  	};
+
     PlaylistFactory.create = function (data) {
         return $http.post('/api/playlists', data)
         .then(function (response) {
-            var playlist = response.data
+            var playlist = response.data;
             cachedPlaylists.push(playlist);
             return playlist;
         });
